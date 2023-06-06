@@ -38,14 +38,9 @@
           </li>
         </ul>
       </div>
-<<<<<<< HEAD
       <div v-if="showSuccessMessage" class="success-message">
         <p>Purchase successful!</p>
       </div>
-=======
-      <p>   TOTAL  - {{ suma }}</p>
-      <button>Comprar</button>
->>>>>>> 4c28ba02def470f83e9f5207e37a1a3ce6d20376
     </div>
   </template>
   
@@ -60,11 +55,7 @@
           { id: 3, name: 'Fanta ', price: 2.0, quantityToAdd: 1 },
           { id: 3, name: 'Sprite ', price: 2.0, quantityToAdd: 1 },
         ],
-<<<<<<< HEAD
         showSuccessMessage: false,
-=======
-        suma: 0
->>>>>>> 4c28ba02def470f83e9f5207e37a1a3ce6d20376
       };
     },
     computed: {
