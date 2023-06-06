@@ -2,7 +2,7 @@
     <div class="shopping-cart">
       <h2>Shopping Cart</h2>
       <div v-if="products.length === 0">
-        <p>No products in the cart.</p>
+        <p>No hay productos en el carro.</p>
       </div>
       <ul v-else>
         <li v-for="(product, index) in products" :key="product.id" class="cart-item">
@@ -23,7 +23,7 @@
         <button class="buy-btn" @click="buyProducts">Buy</button>
       </ul>
       <div>
-        <h3>Available Products</h3>
+        <h3>Productos disponibles</h3>
         <ul>
           <li v-for="product in availableProducts" :key="product.id" class="product-item">
             <div class="product-info">
@@ -31,15 +31,15 @@
               <span class="product-price">${{ product.price }}</span>
             </div>
             <div class="quantity">
-              Quantity:
+              Cantidad:
               <input type="number" v-model.number="product.quantityToAdd" min="1">
             </div>
-            <button class="add-btn" @click="addProduct(product)">Add to Cart</button>
+            <button class="add-btn" @click="addProduct(product)">Añadir al carrito</button>
           </li>
         </ul>
       </div>
       <div v-if="showSuccessMessage" class="success-message">
-        <p>Purchase successful!</p>
+        <p>Compra exitosa</p>
       </div>
     </div>
   </template>
