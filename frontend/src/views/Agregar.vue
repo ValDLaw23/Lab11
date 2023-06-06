@@ -7,8 +7,13 @@
       <ul v-else>
         <li v-for="(product, index) in products" :key="product.id" class="cart-item">
           <div class="product-info">
-            <span class="product-name">{{ product.name }}</span>
-            <span class="product-price">${{ product.price }}</span>
+            <div class="product-image">
+              <img :src="product.image" :alt="product.name">
+            </div>
+            <div class="product-details">
+              <span class="product-name">{{ product.name }}</span>
+              <span class="product-price">S/.{{ product.price }}</span>
+            </div>
           </div>
           <div class="quantity">
             Quantity:
@@ -19,7 +24,7 @@
           </div>
           <button class="remove-btn" @click="removeProduct(index)">Remove</button>
         </li>
-        <p class="overall-total"><strong>Overall Total: S/.{{ overallTotal }}</strong></p>
+        <p class="overall-total"><strong>Total: S/.{{ overallTotal }}</strong></p>
         <button class="buy-btn" @click="buyProducts">Buy</button>
       </ul>
       <div>
@@ -27,11 +32,16 @@
         <ul>
           <li v-for="product in availableProducts" :key="product.id" class="product-item">
             <div class="product-info">
-              <span class="product-name">{{ product.name }}</span>
-              <span class="product-price">${{ product.price }}</span>
+            <div class="product-image">
+              <img :src="product.image" :alt="product.name">
             </div>
+            <div class="product-details">
+              <span class="product-name">{{ product.name }}</span>
+              <span class="product-price">S/.{{ product.price }}</span>
+            </div>
+          </div>
             <div class="quantity">
-              Cantidad:
+               Cantidad:
               <input type="number" v-model.number="product.quantityToAdd" min="1">
             </div>
             <button class="add-btn" @click="addProduct(product)">Añadir al carrito</button>
@@ -50,10 +60,11 @@
       return {
         products: [],
         availableProducts: [
-          { id: 1, name: 'Coca Cola ', price: 2.5, quantityToAdd: 1 },
-          { id: 2, name: 'Inka Kola ', price: 2.5, quantityToAdd: 1 },
+          { id: 1, name: 'Coca Cola ', price: 2.5, quantityToAdd: 1, image: '/assets/sprite.jpg' },
+          { id: 2, name: 'Pepsi ', price: 2.5, quantityToAdd: 1 },
           { id: 3, name: 'Fanta ', price: 2.0, quantityToAdd: 1 },
           { id: 3, name: 'Sprite ', price: 2.0, quantityToAdd: 1 },
+          { id: 3, name: 'Seven Up ', price: 1.5, quantityToAdd: 1 },
         ],
         showSuccessMessage: false,
       };
@@ -146,17 +157,40 @@
     border: 1px solid #ddd;
     border-radius: 5px;
   }
+
+  .product-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  color: #777;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
   
   .product-info {
     display: flex;
     align-items: center;
   }
-  
-  .product-name {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
+
   .quantity {
     flex: 1;
     display: flex;
