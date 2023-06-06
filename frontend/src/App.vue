@@ -1,5 +1,15 @@
 <template>
-  <router-view/>
+  <div class="app">
+    <div class="title-box">
+      <h1 class="animate__animated fadeIn" style="font-size: 50px; color: #ffffff; font-family: 'Cursive, cursive; animation: bannerAnimation 3s infinite alternate">UTEC SHOP</h1>
+    </div>
+    <div class="links">
+      <router-link to="/" style="margin-right: 20px;">Home  </router-link>
+      <router-link to="/login" style="margin-right: 20px;">Login  </router-link>
+      <router-link to="/register">Register  </router-link>
+    </div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>
