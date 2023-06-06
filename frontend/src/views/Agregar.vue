@@ -19,6 +19,8 @@
           </li>
         </ul>
       </div>
+      <p>   TOTAL  - {{ suma }}</p>
+      <button>Comprar</button>
     </div>
   </template>
   
@@ -32,6 +34,7 @@
           { id: 2, name: 'Product 2', price: 20 },
           { id: 3, name: 'Product 3', price: 30 },
         ],
+        suma: 0
       };
     },
     methods: {
